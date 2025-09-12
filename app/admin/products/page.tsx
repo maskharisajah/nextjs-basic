@@ -1,7 +1,7 @@
-export default function ProductsPage() {
+export default function ProductPage() {
   return (
     <div>
-      <h1>Products Page</h1>
+      <h1>Admin Product Page</h1>
     </div>
   );
 }
