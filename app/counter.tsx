@@ -13,7 +13,12 @@ export function Counter() {
   return (
     <>
       <p>counter: {count}</p>
-      <button onClick={increment}>increment</button>
+      <button
+        className='px-4 py-2 bg-blue-500 text-white rounded-md'
+        onClick={increment}
+      >
+        increment
+      </button>
     </>
   );
 }
