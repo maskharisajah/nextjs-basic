@@ -1,5 +1,6 @@
 import { Post } from "@/app/types/Post";
 import { CommentForm } from "./comment-form";
+import { LikeButton } from "./like-button";
 
 async function getPost(slug: string): Promise<Post> {
   const res = await fetch(`http://localhost:3002/posts/?slug=` + slug);
@@ -25,6 +26,8 @@ export default async function PostDetailPage({
         <h1>Detail Page</h1>
         <h1 className='text-lg'>{post.title}</h1>
         <p>{post.content}</p>
+        <hr className='my-4' />
+        <LikeButton />
       </article>
       <section className='mt-4'>
         <h2 className='text-lg'>Comments</h2>

@@ -5,6 +5,7 @@ import { useActionState } from "react";
 
 const initialState = {
   error: "",
+  success: "",
 };
 
 export function CommentForm() {
@@ -21,6 +22,13 @@ export function CommentForm() {
             {state.error}
           </div>
         )}
+
+        {state?.success && (
+          <div className='text-green-500' role='status'>
+            {state.success}
+          </div>
+        )}
+
         <textarea
           placeholder='Tulis komentar'
           className='w-full bg-white text-black h-40 border border-white mb-2'
@@ -30,7 +38,7 @@ export function CommentForm() {
           className='bg-blue-500 text-white py-2 px-4 rounded w-full'
           disabled={pending}
         >
-          Kirim
+          {pending ? "Mengirim..." : "Kirim"}
         </button>
       </form>
     </>
