@@ -3,7 +3,12 @@
 import { createLike } from "@/app/action";
 import { useTransition } from "react";
 
-export function LikeButton({ postId }: { postId: string }) {
+type likeButtonProps = {
+  postId: string;
+};
+
+export function LikeButton(props: likeButtonProps) {
+  const { postId } = props;
   const [pending, startTransition] = useTransition();
 
   async function handleLike() {
