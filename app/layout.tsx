@@ -21,10 +21,10 @@ export async function generateMetadata() {
 
   return {
     title: {
-      default: "Untitled",
       template: `%s | ${setting.siteName}`,
+      default: "Untitled",
     },
-    description: "Tame Blog",
+    description: "Blog gue",
   };
 }
 
