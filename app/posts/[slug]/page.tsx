@@ -1,6 +1,8 @@
 import { Post } from "@/app/types/Post";
 import { CommentForm } from "./comment-form";
 import { LikeButton } from "./like-button";
+import { Comments } from "./comments";
+import { Suspense } from "react";
 
 //dynamic metadata
 export async function generateMetadata({
@@ -45,6 +47,9 @@ export default async function PostDetailPage({
       </article>
       <section className='mt-4'>
         <h2 className='text-lg'>Comments</h2>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Comments />
+        </Suspense>
         <CommentForm />
       </section>
     </>
