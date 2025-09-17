@@ -1,16 +1,15 @@
 "use client";
 
 import { createLike } from "@/app/action";
-import { useState } from "react";
+import { useTransition } from "react";
 
-export function LikeButton() {
-  const [pending, setPending] = useState(false);
+export function LikeButton({ postId }: { postId: string }) {
+  const [pending, startTransition] = useTransition();
 
   async function handleLike() {
-    setPending(true);
-    await createLike();
-
-    setPending(false);
+    startTransition(async () => {
+      await createLike(postId);
+    });
   }
 
   return (
