@@ -1,3 +1,4 @@
+import { createComment } from "@/app/action";
 import { Post } from "@/app/types/Post";
 
 async function getPost(slug: string): Promise<Post> {
@@ -19,10 +20,25 @@ export default async function PostDetailPage({
   console.log(post);
 
   return (
-    <article>
-      <h1>Detail Page</h1>
-      <h1>{post.title}</h1>
-      <p>{post.content}</p>
-    </article>
+    <>
+      <article>
+        <h1>Detail Page</h1>
+        <h1 className='text-lg'>{post.title}</h1>
+        <p>{post.content}</p>
+      </article>
+      <section className='mt-4'>
+        <h2 className='text-lg'>Comments</h2>
+        <form action={createComment} className='flex flex-col w-72'>
+          <textarea
+            placeholder='Tulis komentar'
+            className='w-full bg-white text-black h-40 border border-white mb-2'
+            name='comment'
+          ></textarea>
+          <button className='bg-blue-500 text-white py-2 px-4 rounded w-full'>
+            Kirim
+          </button>
+        </form>
+      </section>
+    </>
   );
 }
