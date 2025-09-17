@@ -2,6 +2,11 @@
 
 import Link from "next/link";
 import { Post } from "../types/Post";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Posts",
+};
 
 async function getPosts(): Promise<Post[]> {
   const res = await fetch("http://localhost:3002/posts");

@@ -2,6 +2,20 @@ import { Post } from "@/app/types/Post";
 import { CommentForm } from "./comment-form";
 import { LikeButton } from "./like-button";
 
+//dynamic metadata
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const post = await getPost(slug);
+
+  return {
+    title: post.title,
+  };
+}
+
 async function getPost(slug: string): Promise<Post> {
   const res = await fetch(`http://localhost:3002/posts/?slug=` + slug);
   const [post] = await res.json();
