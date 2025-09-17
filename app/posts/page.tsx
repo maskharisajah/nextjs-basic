@@ -9,16 +9,18 @@ export const metadata: Metadata = {
 };
 
 async function getPosts(): Promise<Post[]> {
+  await new Promise((resolve) => setTimeout(resolve, 5000));
+
   const res = await fetch("http://localhost:3002/posts");
   const posts = await res.json();
 
   return posts;
 }
 
-const posts = await getPosts();
-console.log(posts);
-
 export default async function PostsPage() {
+  const posts = await getPosts();
+  console.log(posts);
+
   return (
     <div>
       <h1>Posts Page</h1>
