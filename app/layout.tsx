@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Source_Sans_3, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "./header";
+import { Footer } from "./footer";
 
 const fontMono = JetBrains_Mono({
   variable: "--font-mono",
@@ -30,6 +31,7 @@ export default function RootLayout({
       >
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
