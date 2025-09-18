@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Source_Sans_3, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "./header";

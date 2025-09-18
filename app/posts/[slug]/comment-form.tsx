@@ -1,9 +1,10 @@
 "use client";
 
 import { createComment } from "@/app/action";
+import { type CommentFormState } from "@/app/types/CommentFormState";
 import { useActionState } from "react";
 
-const initialState = {
+const initialState: CommentFormState = {
   error: "",
   success: "",
 };

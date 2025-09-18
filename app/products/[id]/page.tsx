@@ -9,7 +9,7 @@ export default async function ProductPage({
 
   return (
     <div>
-      <h1>Product Detail Page</h1>
+      <h1>Product Detail Page {id}</h1>
     </div>
   );
 }

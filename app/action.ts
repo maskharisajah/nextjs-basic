@@ -1,7 +1,12 @@
 // server action example
 "use server";
 
-export async function createComment(prevData: any, FormData: FormData) {
+import { type CommentFormState } from "./types/CommentFormState";
+
+export async function createComment(
+  prevData: CommentFormState,
+  FormData: FormData
+): Promise<CommentFormState> {
   const comment = FormData.get("comment") as string;
   //   console.log(comment);
 
@@ -9,7 +14,7 @@ export async function createComment(prevData: any, FormData: FormData) {
     return { error: "Comment cannot be empty" };
   }
 
-  return { error: "", success: "Komentar berhasil dikirim" };
+  return { success: "Komentar berhasil dikirim" };
 }
 
 export async function createLike(postId: string) {
