@@ -3,6 +3,7 @@ import { CommentForm } from "./comment-form";
 import { LikeButton } from "./like-button";
 import { Comments } from "./comments";
 import { Suspense } from "react";
+import { notFound } from "next/navigation";
 
 //dynamic metadata
 export async function generateMetadata({
@@ -12,6 +13,12 @@ export async function generateMetadata({
 }) {
   const { slug } = await params;
   const post = await getPost(slug);
+
+  if (!post) {
+    return {
+      title: "Post Not Found",
+    };
+  }
 
   return {
     title: post.title,
@@ -35,6 +42,10 @@ export default async function PostDetailPage({
 
   const post = await getPost(slug);
   console.log(post);
+
+  if (!post) {
+    notFound();
+  }
 
   return (
     <>
